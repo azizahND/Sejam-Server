@@ -15,6 +15,10 @@ module.exports = {
       deskripsi: {
         type: Sequelize.TEXT
       },
+      gambar: {
+        type: Sequelize.BLOB('long'), 
+        allowNull: true,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

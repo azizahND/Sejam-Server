@@ -26,6 +26,10 @@ module.exports = (sequelize, DataTypes) => {
     deskripsi: {
       type: DataTypes.TEXT
     },
+    gambar: {
+      type: DataTypes.BLOB, 
+      allowNull: true,
+    },
     
   }, {
     sequelize,
