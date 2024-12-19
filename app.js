@@ -18,9 +18,21 @@ app.use(session({
   saveUninitialized: true,
   cookie: {
     secure: false, // Gunakan secure: true jika menggunakan HTTPS
-    maxAge: 60 * 60 * 1000 // Durasi sesi: 1 jam dalam milidetik
-  }  // Gunakan secure: true jika menggunakan HTTPS
+    maxAge: 60 * 60 * 1000,
+    // Durasi sesi: 1 jam dalam milidetik
+  } 
+   // Gunakan secure: true jika menggunakan HTTPS
 }));
+
+app.use((req, res, next) => {
+  console.log('Session ID:', req.sessionID);
+  console.log('Session Data:', req.session);
+  next();
+});
+
+
+
+
 
 // Middleware untuk parse JSON body
 app.use(express.json());
@@ -32,6 +44,13 @@ app.use('/ruangan', ruanganRoutes);
 const authRoutes = require('./routes/auth');
 app.use('/auth', authRoutes);
 
+let items = [
+  { id: 1, name: "Item 1", description: "Description of Item 1" },
+  { id: 2, name: "Item 2", description: "Description of Item 2" },
+  { id: 3, name: "Item 3", description: "Description of Item 3" }
+];
+
+// Controller untuk menangani rute GET /items
 
 
 
